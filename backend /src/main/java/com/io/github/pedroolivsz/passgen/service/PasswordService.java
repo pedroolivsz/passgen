@@ -1,9 +1,12 @@
 package com.io.github.pedroolivsz.passgen.service;
 
 import com.io.github.pedroolivsz.passgen.DTOs.PasswordRequest;
+import com.io.github.pedroolivsz.passgen.DTOs.PasswordResponse;
 import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class PasswordService {
@@ -34,5 +37,23 @@ public class PasswordService {
         }
 
         return password.toString();
+    }
+
+    public PasswordResponse generate(PasswordRequest request) {
+        String alphabet = buildAlphabet(request);
+
+        if(alphabet.isEmpty()) {
+            throw new IllegalArgumentException("Pelo menos uma categoria de caracteres deve ser selecionada.");
+        }
+
+        List<String> passwords = new ArrayList<>();
+        int quantity = request.quantity() != null ? request.quantity() : 1;
+        int passwordLength = request.length() != null ? request.length() : 16;
+
+        for(int i = 0; i < quantity; i++) {
+            passwords.add(generateSinglePassword(alphabet, passwordLength));
+        }
+
+        return new PasswordResponse(passwords, passwordLength);
     }
 }
