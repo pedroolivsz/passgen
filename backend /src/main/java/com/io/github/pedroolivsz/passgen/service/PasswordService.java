@@ -24,4 +24,15 @@ public class PasswordService {
         }
         return pool;
     }
+
+    private String generateSinglePassword(String alphabet, int length) {
+        StringBuilder password = new StringBuilder(length);
+
+        for(int i = 0; i < length; i++) {
+            int randomIndex = RANDOM.nextInt(alphabet.length());
+            password.append(alphabet.charAt(randomIndex));
+        }
+
+        return password.toString();
+    }
 }
