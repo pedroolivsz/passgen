@@ -14,7 +14,7 @@ backend /.mvn/wrapper/maven-wrapper.jar
 .sts4-cache
 
 ### IntelliJ IDEA ###
-backend /.idea/
+.idea/
 *.iws
 *.iml
 *.ipr
@@ -31,10 +31,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-/.idea/compiler.xml
-/.idea/encodings.xml
-/.idea/misc.xml
-/.idea/modules.xml
-/.idea/vcs.xml
-/.idea/workspace.xml
