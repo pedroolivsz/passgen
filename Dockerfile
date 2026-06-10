@@ -7,7 +7,7 @@ COPY backend/pom.xml .
 RUN mvn dependency:go-offline -q
 
 COPY backend/src ./src
-RUN mvn package -DiskipTests -q
+RUN mvn package -DskipTests -q
 
 # Stage 2: Runtime
 FROM eclipse-temurin:21-jre-alpine AS runtime
