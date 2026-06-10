@@ -16,3 +16,19 @@ export interface PasswordResponse {
     generateAt: string;
 }
 
+export async function generatePasswords(
+    request: PasswordRequest
+): Promise<PasswordResponse> {
+    const response = await fetch(`${BASE_URL}/api/v1/passwords/generate`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(request),
+    });
+
+    if(!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message ?? "Erro ao gerar senhas");
+    }
+
+    return response.json();
+}
