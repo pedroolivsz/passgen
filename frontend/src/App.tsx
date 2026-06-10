@@ -2,6 +2,7 @@ import { useState } from "react";
 import { generatePasswords, type PasswordRequest, type PasswordResponse } from "./services/api";
 import { PasswordForm } from "./components/PasswordForm";
 import { PasswordResult } from "./components/PasswordResult";
+import "./App.css"
 export default function App() {
     const [result, setResult] = useState<PasswordResponse | null>(null);
     const [loading, setLoading] = useState(false);
