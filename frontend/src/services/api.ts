@@ -23,6 +23,7 @@ export async function generatePasswords(
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(request),
+        signal: AbortSignal.timeout(40_000),
     });
 
     if(!response.ok) {
