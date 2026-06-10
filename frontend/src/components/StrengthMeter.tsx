@@ -14,3 +14,18 @@ function calcStrength(password: string): { score: number; label: string; color: 
     
     return { score, label: "Forte", color: "#39d353" }
 }
+
+export function StrengthMeter({ password }: Props) {
+    const { score, label, color } = calcStrength(password);
+    const percentage = `${Math.round((score / 6) * 100)}%`
+
+    return (
+        <div className="strength">
+            <div className="strength-track">
+                <div className="strength-fill" style={{ width: percentage, background: color }} />
+            </div>
+
+            <span className="strength-label" style={{ color }}>{label}</span>
+        </div>
+    );
+}
