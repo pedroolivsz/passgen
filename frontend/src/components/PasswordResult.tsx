@@ -25,6 +25,7 @@ export function PasswordResult({ result }: Props) {
 
                 <button
                     className={`result-copy ${copied === i ? "result-copy--done" : ""}`}
+                    onClick={() => copy(password, i)}
                 >
                     {copied === i ? "Copiado" : "Copiar"}
                 </button>
