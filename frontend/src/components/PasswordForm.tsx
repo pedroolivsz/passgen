@@ -16,3 +16,10 @@ export function PasswordForm({ onGenerate, loading }: props) {
     const [quantity, setQuantity] = useState(1);
 
     const noneSelected = !uppercase && !lowercase && !numbers && !symbols;
+
+    function handleSubmit() {
+        if(noneSelected) return;
+        onGenerate({ length, uppercase, lowercase, numbers, symbols, excludeAmbiguous, quantity });
+    }
+
+    
