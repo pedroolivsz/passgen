@@ -9,3 +9,10 @@ export interface PasswordRequest {
     excludeAmbiguous: boolean;
     quantity: number;
 }
+
+export interface PasswordResponse {
+    passwords: string[];
+    length: number;
+    generateAt: string;
+}
+
