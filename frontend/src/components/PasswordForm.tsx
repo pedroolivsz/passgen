@@ -32,7 +32,7 @@ export function PasswordForm({ onGenerate, loading }: props) {
 
                 <input
                     type="range"
-                    onChange={e => setLength(Number(e.target.value))}
+                    onChange={e => setLength(Math.max(8, Math.min(128, Number(e.target.value))))}
                     className="form-range"
                 />
 
@@ -60,6 +60,9 @@ export function PasswordForm({ onGenerate, loading }: props) {
                 ))}
             </div>
 
+            {length < 8 && (
+                <p className="form-warn">Tamanho mínimo é 8 caracteres.</p>
+            )}
             {noneSelected && (
                 <p className="form-warn">Selecione pelo menos um tipo de caractere.</p>
             )}
