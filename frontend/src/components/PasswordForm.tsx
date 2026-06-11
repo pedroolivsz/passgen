@@ -31,7 +31,7 @@ export function PasswordForm({ onGenerate, loading }: props) {
                 </label>
 
                 <input
-                    type="range"
+                    type="range" min={8} max={128} value={length}
                     onChange={e => setLength(Math.max(8, Math.min(128, Number(e.target.value))))}
                     className="form-range"
                 />
