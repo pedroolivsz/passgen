@@ -25,7 +25,7 @@ export default function App() {
     return (
         <div className="app">
             <header className="app-header">
-                <span className="app-logo">🔐</span>
+                <span className="app-logo"><img src="/icons/icon-192.png" alt="Logo Passgen" /></span>
                 <h1 className="app-title">Passgen</h1>
                 <p className="app-subtitle">Gerador de senhas seguras</p>
             </header>
@@ -35,6 +35,10 @@ export default function App() {
                 {error && <p className="app-error">{error}</p>}
                 {result && <PasswordResult result={result} />}
             </main>
+
+            <footer className="app-footer">
+                <p>🔒 Suas senhas nunca são salvas ou compartilhadas.</p>
+            </footer>
         </div>
     );
 }
